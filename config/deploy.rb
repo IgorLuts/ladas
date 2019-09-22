@@ -16,7 +16,7 @@ set :unicorn_pid,    "/var/run/unicorn/#{fetch(:user)}/" \
 set :bundle_without, [:development, :test]
 set :use_sudo,       false
 
-set :repo_url,       'git@github.com:IgorLuts/market.git'
+set :repo_url,       'git@github.com:IgorLuts/ladas.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
