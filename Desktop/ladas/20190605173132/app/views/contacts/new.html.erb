@@ -1,0 +1,47 @@
+<% content_for :title do %>
+Наши контакты | Ладас.укр<% end %>
+<% content_for :description do %>
+Официальный сайт Ладас.укр. Бесплатная доставка по всей Украине. Наши телефоны: (096) 543 38 24, (095) 549 97 83.<% end %>
+<% content_for :keywords do %>
+шведская стенка с установкой днепропетровск, шведская стенка для детей днепропетровск, шведские стенки от производителя днепропетровск, шведская стенка для детей купить в харькове, купить турник настенный в одессе.<% end %>
+
+<div class="box" id="contact">
+    <h2>Номера телефонов</h2>
+    <p>Вы сможете проконсультироваться с менеджерами или заказать товар по номеру:</p>
+    <ul>
+      <li>+38 (096) 543-38-24</li>
+    </ul>
+    <h2>Написать нам</h2>
+    <ul>
+      <li>на email: admin@ладас.укр либо воспользоваться формой обратной связи ниже</li>
+    </ul>
+      <%= form_for(@contact, :html => { :role => 'form'}) do |f| %>
+        <% if @contact.errors.any? %>
+          <div id="error">
+            <% @contact.errors.full_messages.each do |msg| %>
+                <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong><%= msg %></strong>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label "Имя:" %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Email:" %><br>
+          <%= f.text_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Ваш вопрос:" %><br>
+          <%= f.text_area :content, class: 'form-control' %>
+        </div>
+        <%= recaptcha_tags %>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-envelope-o"></i> Отправить сообщение
+        </button>
+      <% end %>
+</div>
