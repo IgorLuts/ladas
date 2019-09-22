@@ -1,0 +1,20 @@
+<% content_for :title do %>
+Новости и интересные статьи<% end %>
+<% content_for :description do %>
+В интернет магазине Ладас.укр вы можете не только купить шведские стенки для детей и взрослых, но также узнать много интересного о спорте и здоровье.<% end %>
+
+<div id="blog-listing">
+  <% @articles.each do |article| %>
+    <div class="post">
+        <h3><%= link_to article.title, article_path(article) %></h3>
+        <p class="intro">
+            <%= sanitize article.description %>
+        </p>
+        <p class="read-more">
+            <%= link_to "Подробнее", article_path(article), class: "btn btn-primary" %>
+        </p>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @articles %>
